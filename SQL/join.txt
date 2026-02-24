@@ -9,6 +9,19 @@ INNER JOIN table2 t2 ON t1.id = t2.id;
 
 
 
+-- ১ নম্বর: INNER JOIN
+SELECT p.name, o.order_date
+FROM persons p
+INNER JOIN orders o ON p.id = o.person_id;
+
+-- ২ নম্বর: LEFT JOIN
+SELECT p.name, o.order_date
+FROM persons p
+LEFT JOIN orders o ON p.id = o.person_id;
+
+
+
+
 
 ৫. CROSS JOIN (সবার সাথে সব — খুব কম লাগে)
 SQLSELECT s.name, r.subject
@@ -27,3 +40,17 @@ CROSS = কোনো মিল-মেল ছাড়াই সব × সব
 
 INNER JOIN
 LEFT JOIN
+
+
+LeetCode-577
+
+SELECT 
+    e.name,
+    b.bonus
+FROM 
+    Employee e
+LEFT JOIN 
+    Bonus b ON e.empId = b.empId
+WHERE 
+    b.bonus < 1000 
+    OR b.bonus IS NULL;
