@@ -1,0 +1,29 @@
+1.INNER JOIN
+common data will be seen
+I can also see specific column
+
+SELECT *
+FROM table1 t1
+INNER JOIN table2 t2 ON t1.id = t2.id;
+
+
+
+
+
+৫. CROSS JOIN (সবার সাথে সব — খুব কম লাগে)
+SQLSELECT s.name, r.subject
+FROM Student s
+CROSS JOIN Result r;
+→ ৪ student × ৩ result = ১২টা রো আসবে (সব কম্বিনেশন)
+দ্রুত মনে রাখার ট্রিক (Venn Diagram স্টাইল)
+
+INNER = দুই বৃত্তের মাঝের অংশ
+LEFT  = বাম বৃত্ত পুরো + মাঝের অংশ
+RIGHT = ডান বৃত্ত পুরো + মাঝের অংশ
+FULL  = দুই বৃত্তই পুরো
+CROSS = কোনো মিল-মেল ছাড়াই সব × সব
+
+সবচেয়ে বেশি যেগুলো শিখতে হবে (প্রথমে)
+
+INNER JOIN
+LEFT JOIN
