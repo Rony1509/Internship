@@ -1,0 +1,14 @@
+-- 1. LENGTH ব্যবহার করে (সবচেয়ে সাধারণ)
+SELECT tweet_id
+FROM Tweets
+WHERE LENGTH(content) > 15;
+
+-- 2. LENGTHB (byte length) — যদি multibyte character থাকে তাহলে নিরাপদ
+SELECT tweet_id
+FROM Tweets
+WHERE LENGTHB(content) > 15;
+
+-- 3. CHAR_LENGTH (ANSI স্ট্যান্ডার্ড)
+SELECT tweet_id
+FROM Tweets
+WHERE CHAR_LENGTH(content) > 15;
