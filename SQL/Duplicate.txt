@@ -1,0 +1,13 @@
+-- একটা কলামে duplicate
+SELECT email, COUNT(*) 
+FROM users 
+GROUP BY email 
+HAVING COUNT(*) > 1;
+
+-- একাধিক কলামে duplicate
+SELECT name, phone, COUNT(*) 
+FROM contacts 
+GROUP BY name, phone 
+HAVING COUNT(*) > 1;
+
+
