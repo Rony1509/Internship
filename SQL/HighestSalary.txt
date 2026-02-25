@@ -1,0 +1,26 @@
+NULL হ্যান্ডেল করার জন্য সাধারণত যেভাবে লেখা হয় (LeetCode স্টাইল)
+
+SELECT 
+    (SELECT DISTINCT salary
+     FROM Employee e1
+     WHERE (N - 1) = (
+         SELECT COUNT(DISTINCT salary)
+         FROM Employee e2
+         WHERE e2.salary > e1.salary
+     )
+    ) AS NthHighestSalary;
+
+    যদি কোনো salary-এর জন্য শর্ত না মেলে → subquery কিছু রিটার্ন করবে না → ফলাফল NULL
+
+সারাংশ (মনে রাখার সহজ কথা)
+“আমি খুঁজছি সেই salary যার চেয়ে ঠিক (N-1)টা আলাদা salary বড় আছে।”
+এই লজিকের জন্যই এই correlated subquery এত জনপ্রিয় — এটা conceptually খুব পরিষ্কার এবং duplicate salary-ও সঠিকভাবে হ্যান্ডেল করে।
+
+
+দ্রুত মনে রাখার সূত্র
+Nth highest = সেই salary যার চেয়ে ঠিক (N-1)টা আলাদা (distinct) বড় salary আছে।
+এই লজিকের কারণেই এই কোয়েরি:
+
+duplicate salary সঠিকভাবে হ্যান্ডেল করে
+NULL কেস স্বয়ংক্রিয়ভাবে আসে
+যেকোনো N-এর জন্য কাজ করে (শুধু N-এর মান চেঞ্জ করলেই হয়)
