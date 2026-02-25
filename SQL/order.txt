@@ -1,0 +1,23 @@
+-- সবচেয়ে ছোট থেকে বড় (ascending)
+ORDER BY column_name;
+
+-- সবচেয়ে বড় থেকে ছোট (descending)
+ORDER BY column_name DESC;
+
+-- একাধিক কলাম দিয়ে সাজানো
+ORDER BY salary DESC, name ASC;
+
+-- নাল ভ্যালু সবার শেষে রাখতে (Oracle/PostgreSQL)
+ORDER BY salary DESC NULLS LAST;
+
+-- নাল ভ্যালু সবার আগে রাখতে
+ORDER BY salary DESC NULLS FIRST;
+
+
+দ্রুত টেস্ট: এই প্রশ্নগুলোতে ORDER BY লাগবে কি?
+
+Find all customers from Dhaka → না
+Find the top 3 highest paid employees → হ্যাঁ
+List all products sorted by price ascending → হ্যাঁ
+Count total orders per customer → না (শুধু COUNT চাইলে)
+Show second highest salary → হ্যাঁ (ORDER BY + LIMIT/OFFSET)
